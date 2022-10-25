@@ -1,1 +1,3 @@
 # snowaddict
+
+## The Snowaddict Project
