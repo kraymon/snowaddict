@@ -12,7 +12,7 @@
 
     switch($_SERVER['REQUEST_URI']) {
         case HOMEPAGE_PATH:
-            echo 'ACCUEIL';
+            echo 'ACCUEILl';
             break;
         case CONTACT_PATH:
             echo 'CONTACT';
