@@ -25,6 +25,20 @@
             echo 'ACCUEIL';
     }
 
+    try {
+        if(isset($_GET['action']) && '' !== $_GET['action']) {
+            $action = $_GET['action'];
+
+            if ('figure' === $_GET['controller']) {
+                if ('create' === $action) {
+                    var_dump('ok');
+                }
+            }
+        }
+    } catch (\Exception $exception) {
+        throw new \Exception('Erreur');
+    }
+
     require_once('controllers/'.$controller.'Controller.php');
 
     $controller = new ($controller.'Controller');
