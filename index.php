@@ -27,6 +27,10 @@
 
     require_once('controllers/'.$controller.'Controller.php');
 
+    $controller = new ($controller.'Controller');
+
+    echo $controller->{$action}('Jacques');
+
     /**
     if($_SERVER['REQUEST_URI'] === '/') {
         echo 'ACCUEIL';
