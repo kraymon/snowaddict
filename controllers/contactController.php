@@ -1,3 +1,11 @@
 <?php
 
-    echo 'Je suis le contrôlleur contact';
+class ContactController {
+
+    /**
+     * Contact function
+     */
+    function contact(string $name): string {
+        return "Hello $name!";
+    }
+}
