@@ -3,21 +3,29 @@
     // define('HOMEPAGE_PATH', '/');
     // define('CONTACT_PATH', '/contact');
 
-    const HOMEPAGE_PATH = '/';
-    const CONTACT_PATH = '/contact';
+    // const HOMEPAGE_PATH = '';
+    const CONTACT_PATH = 'contact';
 
     require_once('views/base.php');
 
-    var_dump($_SERVER['REQUEST_URI']);
+    $requestUri = explode('/', $_SERVER['REQUEST_URI']);
 
-    switch($_SERVER['REQUEST_URI']) {
-        case HOMEPAGE_PATH:
-            echo 'ACCUEILl';
-            break;
+    switch($requestUri[array_key_last($requestUri)]) {
+        /**case HOMEPAGE_PATH:
+            echo 'ACCUEIL';
+            break;*/
         case CONTACT_PATH:
+            $controller = 'contact';
+            $action = 'contact';
             echo 'CONTACT';
             break;
+        default:
+            $controller = 'homepage';
+            $action = 'home';
+            echo 'ACCUEIL';
     }
+
+    require_once('controllers/'.$controller.'Controller.php');
 
     /**
     if($_SERVER['REQUEST_URI'] === '/') {
