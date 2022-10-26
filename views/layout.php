@@ -11,8 +11,10 @@
     <title>Snowaddict Website!</title>
 </head>
 <body>
-    <?php require_once('header.php') ?>
+    <?php require_once('fragments/header.php') ?>
 
-    <?php require_once('footer.php') ?>
+    <?= $content ?>
+
+    <?php require_once('fragments/footer.php') ?>
 </body>
 </html>

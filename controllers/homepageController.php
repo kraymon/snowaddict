@@ -1,8 +1,8 @@
 <?php
 
-class HomepageController {
+final class HomepageController {
 
-    function home($name): string {
-        return 'Je suis sur la page d\'accueil du contrôleur homepage';
+    function home(): void {
+        require_once('views/pages/homepage.php');
     }
 }
