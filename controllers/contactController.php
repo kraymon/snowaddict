@@ -1,7 +1,7 @@
 <?php
 
-class ContactController {
-
+final class ContactController
+{
     /**
      * Contact function
      */
