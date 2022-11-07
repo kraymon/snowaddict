@@ -20,7 +20,7 @@ final class FigureController
             $figure->setVideoPath($_POST['video']);
 
             $figureRepository = new FigureRepository();
-            $figureRepository->setConnection(new DatabaseConnection());
+            $figureRepository->setConnection((new DatabaseConnection())->getConnection());
 
             $figureRepository->create($figure);
         }
