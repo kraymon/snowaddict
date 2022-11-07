@@ -1,7 +1,7 @@
 <?php
 
 class Figure {
-    private int $id;
+    private ?int $id;
     private string $name;
     private string $description;
     private string $picturePath;
@@ -14,7 +14,7 @@ class Figure {
         $this->createdAt = new \DateTime();
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
