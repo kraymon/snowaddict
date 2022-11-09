@@ -10,6 +10,7 @@
       <th scope="col">Video path</th>
       <th scope="col">Created date</th>
       <th scope="col">Updated date</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -35,6 +36,11 @@
       </td>
       <td>
         <?= $figure->getUpdatedAt(); ?>
+      </td>
+      <td>
+        <a href="/index.php?action=update&controller=figure&id=<?= $figure->getId(); ?>">
+          <button class="btn btn-primary btn-sm">Modifier</button>
+        </a>
       </td>
     </tr>
     <?php } ?>
