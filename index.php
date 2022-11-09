@@ -16,6 +16,14 @@
                 if ('list' === $action) {
                     $figureController->list();
                 }
+
+                if ('update' === $action) {
+                    if (!array_key_exists('id', $_GET)) {
+                        throw new \Exception('Id parameter is mandatory');
+                    }
+
+                    $figureController->update($_GET['id']);
+                }
             }
         } else {
             (new HomepageController())->home();
