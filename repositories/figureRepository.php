@@ -90,6 +90,15 @@ final class FigureRepository
         $stmt->execute();
     }
 
+    public function delete(int $figureId): void
+    {
+        $stmt = $this->databaseConnection->prepare('DELETE FROM figure where id = :id');
+
+        $stmt->bindParam(':id', $figureId);
+        
+        $stmt->execute();
+    }
+
     public function setConnection(\PDO $databaseConnection): self
     {
         $this->databaseConnection = $databaseConnection;

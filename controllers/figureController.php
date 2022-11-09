@@ -63,17 +63,20 @@ final class FigureController
         require_once('views/pages/figure/update.php');
     }
 
-    function delete()
+    function delete(int $figureId)
     {
+        $this->figureRepository->delete($figureId);
 
+        $isDelete = true;
+
+        $figures = $this->figureRepository->list();
+
+        require_once('views/pages/figure/list.php');
     }
 
     function list()
     {
-        $figureRepository = new FigureRepository();
-        $figureRepository->setConnection((new DatabaseConnection())->getConnection());
-
-        $figures = $figureRepository->list();
+        $figures = $this->figureRepository->list();
 
         require_once('views/pages/figure/list.php');
     }
