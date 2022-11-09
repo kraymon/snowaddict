@@ -25,6 +25,31 @@ final class FigureRepository
         $stmt->execute();
     }
 
+    public function list(): array
+    {
+        $stmt = $this->databaseConnection->prepare('SELECT * FROM figure');
+
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+
+        $figures = [];
+
+        foreach($results as $result) {
+            $figure = new Figure();
+            $figure->setId($result['id']);
+            $figure->setName($result['name']);
+            $figure->setDescription($result['description']);
+            $figure->setPicturePath($result['picturePath']);
+            $figure->setVideoPath($result['videoPath']);
+            $figure->setCreatedAt(new \DateTime($result['createdAt']));
+            $figure->setUpdatedAt($result['updatedAt'] !== null ? new \DateTime($result['updatedAt']) : null);
+
+            $figures[] = $figure; 
+        }
+
+        return $figures;
+    }
+
     public function setConnection(\PDO $databaseConnection): self
     {
         $this->databaseConnection = $databaseConnection;

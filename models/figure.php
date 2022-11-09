@@ -19,6 +19,13 @@ class Figure {
         return $this->id;
     }
 
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     public function getName(): string
     {
         return $this->name;
@@ -67,9 +74,9 @@ class Figure {
         return $this;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): string
     {
-        return $this->createdAt;
+        return $this->createdAt->format('Y-m-d H:i:s');
     }
 
     public function setCreatedAt(\DateTime $createdAt): self
@@ -79,9 +86,9 @@ class Figure {
         return $this;
     }
 
-    public function getDeletedAt(): ?\DateTime
+    public function getDeletedAt(): ?string
     {
-        return $this->deletedAt;
+        return $this->deletedAt !== null ? $this->deletedAt->format('Y-m-d H:i:s') : null;
     }
 
     public function setDeletedAt(?\DateTime $deletedAt): self
@@ -91,9 +98,9 @@ class Figure {
         return $this;
     }
 
-    public function getUpdatedAt(): ?\Datetime
+    public function getUpdatedAt(): ?string
     {
-        return $this->updatedAt;
+        return $this->updatedAt !== null ? $this->updatedAt->format('Y-m-d H:i:s') : null;
     }
 
     public function setUpdatedAt(?\Datetime $updatedAt): self
