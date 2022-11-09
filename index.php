@@ -14,7 +14,11 @@
                 }
 
                 if ('list' === $action) {
-                    $figureController->list();
+                    if (array_key_exists('id', $_GET)) {
+                        $figureController->delete($_GET['id']);
+                    } else {
+                        $figureController->list();
+                    }
                 }
 
                 if ('update' === $action) {
